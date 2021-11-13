@@ -4,7 +4,6 @@ var express = require('express');
 var path = require('path');
 var http = require('http').Server(app);
 var validator = require('express-validator');
-
 var port = process.env.PORT || 8000
 
 // import controller
