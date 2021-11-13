@@ -1,0 +1,199 @@
+<%- contentFor('HeaderCss') %>
+<!-- DataTables -->
+<link href="public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />  
+
+<style>
+    td 
+    {
+        white-space: normal !important;
+    }
+</style>
+
+<%- contentFor('breadcrumb') %>
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">Categories</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Store</a></li>
+                    <li class="breadcrumb-item active">Categories</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<%- contentFor('body') %>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div>
+            <div>
+                <button type="button" class="btn btn-success waves-effect waves-light mb-3" onclick="window.location.href='add-category'"><i class="mdi mdi-plus me-1"></i> Add Category</button> 
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-centered datatable dt-responsive nowrap table-card-list" style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
+                    <thead>
+                        <tr class="bg-transparent">
+                            <th style="width: 20px;">
+                                <div class="form-check text-center">
+                                    <input type="checkbox" class="form-check-input" id="customercheck">
+                                    <label class="form-check-label" for="customercheck"></label>
+                                </div>
+                            </th>
+                            <th style="width: 120px;">Category ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Game count</th>
+                            <th style="width: 120px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <div class="form-check text-center">
+                                    <input type="checkbox" class="form-check-input" id="customercheck1">
+                                    <label class="form-check-label" for="customercheck1"></label>
+                                </div>
+                            </td>
+                            
+                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#CA0001</a> </td>
+                            <td>
+                                <span>Role-playing</span>
+                            </td>
+                            <td>A role-playing game is a game in which players assume the roles of characters in a fictional setting.</td>
+                            
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                <a href="javascript:void(0);" class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                <a href="javascript:void(0);" class="px-3 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-check text-center">
+                                    <input type="checkbox" class="form-check-input" id="customercheck1">
+                                    <label class="form-check-label" for="customercheck1"></label>
+                                </div>
+                            </td>
+                            
+                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#CA0002</a> </td>
+                            <td>
+                                <span>Adventure</span>
+                            </td>
+                            <td>An adventure game is a game in which the player assumes the role of a protagonist in an interactive story driven by exploration and/or puzzle-solving.</td>
+                            
+                            <td>
+                                6
+                            </td>
+
+                            <td>
+                                <a href="javascript:void(0);" class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                <a href="javascript:void(0);" class="px-3 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-check text-center">
+                                    <input type="checkbox" class="form-check-input" id="customercheck1">
+                                    <label class="form-check-label" for="customercheck1"></label>
+                                </div>
+                            </td>
+                            
+                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#CA0004</a> </td>
+                            <td>
+                                <span>Puzzle</span>
+                            </td>
+                            <td>A game, problem, or toy that tests a person's ingenuity or knowledge</td>
+                            
+                            <td>
+                                10
+                            </td>
+
+                            <td>
+                                <a href="javascript:void(0);" class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                <a href="javascript:void(0);" class="px-3 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-check text-center">
+                                    <input type="checkbox" class="form-check-input" id="customercheck1">
+                                    <label class="form-check-label" for="customercheck1"></label>
+                                </div>
+                            </td>
+                            
+                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#CA0009</a> </td>
+                            <td>
+                                <span>Simulator</span>
+                            </td>
+                            <td>A simulation game attempts to copy various activities from real life in the form of a game for various purposes such as training, analysis, prediction, or simply entertainment.</td>
+                            
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                <a href="javascript:void(0);" class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                <a href="javascript:void(0);" class="px-3 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-check text-center">
+                                    <input type="checkbox" class="form-check-input" id="customercheck1">
+                                    <label class="form-check-label" for="customercheck1"></label>
+                                </div>
+                            </td>
+                            
+                            <td><a href="javascript: void(0);" class="text-dark fw-bold">#CA0011</a> </td>
+                            <td>
+                                <span>Casual</span>
+                            </td>
+                            <td>A casual game is a video game targeted at a mass market audience, as opposed to a hardcore game, which is targeted at hobbyist gamers. </td>
+                            
+                            <td>
+                                20
+                            </td>
+
+                            <td>
+                                <a href="javascript:void(0);" class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>
+                                <a href="javascript:void(0);" class="px-3 text-danger"><i class="uil uil-trash-alt font-size-18"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<%- contentFor('FooterJs') %>
+
+<!-- Required datatable js -->
+<script src="public/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="public/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="public/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="public/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<!-- init js -->
+<script src="public/assets/js/pages/ecommerce-datatables.init.js"></script>
+
+<%- contentFor('BottomJs') %>
