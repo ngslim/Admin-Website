@@ -54,13 +54,9 @@ module.exports = function (app) {
             res.locals = { title: 'Customers' };
             res.render('Customers/customers');
       });
-      app.get('/cart', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Cart' };
-            res.render('Customers/cart');
-      });
-      app.get('/checkout', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Checkout' };
-            res.render('Customers/checkout');
+      app.get('/edit-customer', isUserAllowed, function (req, res) {
+            res.locals = { title: 'Edit Customer' };
+            res.render('Customers/edit-customer');
       });
 
 
