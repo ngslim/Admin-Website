@@ -1,14 +1,14 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const urlencodeParser = bodyParser.urlencoded({ extended: false });
+var express = require('express');
+var bodyParser = require('body-parser');
+var urlencodeParser = bodyParser.urlencoded({ extended: false });
 
-const validator = require('express-validator');
+var validator = require('express-validator');
 
-const axios = require("axios");
-const MockAdapter = require("axios-mock-adapter");
+var axios = require("axios");
+var MockAdapter = require("axios-mock-adapter");
 
 // This sets the mock adapter on the default instance
-const mock = new MockAdapter(axios);
+var mock = new MockAdapter(axios);
 
 let users = [
 	{ id: 1, username: 'admin', password: '123456', email: 'admin@themesbrand.com' }

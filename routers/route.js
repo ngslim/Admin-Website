@@ -1,7 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const urlencodeParser = bodyParser.urlencoded({ extended: false });
-const validator = require('express-validator');
+var express = require('express');
+var bodyParser = require('body-parser');
+var urlencodeParser = bodyParser.urlencoded({ extended: false });
+var validator = require('express-validator');
 
 module.exports = function (app) {
 
