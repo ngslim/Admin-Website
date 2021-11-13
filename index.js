@@ -5,6 +5,8 @@ var path = require('path');
 var http = require('http').Server(app);
 var validator = require('express-validator');
 
+var port = process.env.PORT || 8000
+
 // import controller
 var AuthController = require('./controllers/AuthController');
 
@@ -58,6 +60,6 @@ app.get('/', function (req, res) {
   res.redirect('/');
 });
 
-http.listen(8000, function () {
-  console.log('listening on *:8000');
+http.listen(port, function () {
+  console.log('listening on *: ', port);
 });
