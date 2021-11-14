@@ -36,13 +36,17 @@ module.exports = function (app) {
             res.locals = { title: 'Add Product' };
             res.render('Store/add-product');
       });
+      app.get('/edit-product', isUserAllowed, function (req, res) {
+            res.locals = { title: 'Edit Product' };
+            res.render('Store/edit-product');
+      });
       app.get('/categories', isUserAllowed, function (req, res) {
             res.locals = { title: 'Categories' };
             res.render('Store/categories');
       });
-      app.get('/add-category', isUserAllowed, function (req, res) {
-            res.locals = { title: 'Add Category' };
-            res.render('Store/add-category');
+      app.get('/tags', isUserAllowed, function (req, res) {
+            res.locals = { title: 'Tags' };
+            res.render('Store/tags');
       });
 
       //Customers

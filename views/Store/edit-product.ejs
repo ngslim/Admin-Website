@@ -12,12 +12,12 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">Add Product</h4>
+            <h4 class="mb-0">Edit Product</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Store</a></li>
-                    <li class="breadcrumb-item active">Add Product</li>
+                    <li class="breadcrumb-item active">Edit Product</li>
                 </ol>
             </div>
 
@@ -45,7 +45,7 @@
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h5 class="font-size-16 mb-1">Product Info</h5>
-                                <p class="text-muted text-truncate mb-0">Fill all information below</p>
+                                <p class="text-muted text-truncate mb-0">Select the infomation you want to edit</p>
                             </div>
                             <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
                         </div>
@@ -60,13 +60,13 @@
                                 <div class="col-lg-9">
                                     <div class="mb-3">
                                         <label class="form-label" for="productname">Product Name</label>
-                                        <input id="productname" name="productname" type="text" class="form-control">
+                                        <input id="productname" name="productname" type="text" value="The Dark Picture: Man of Medan" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="mb-3">
                                         <label class="form-label" for="release">Release Date</label>
-                                        <input id="release" class="form-control" type="date" value="2019-08-19">
+                                        <input id="release" class="form-control" type="date" value="2019-08-30">
                                     </div>
                                 </div>
                             </div>
@@ -75,26 +75,26 @@
                                     
                                     <div class="mb-3">
                                         <label class="form-label" for="devname">Developer</label>
-                                        <input id="devname" name="devname" type="text" class="form-control">
+                                        <input id="devname" name="devname" type="text" value="Supermassive Games" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     
                                     <div class="mb-3">
                                         <label class="form-label" for="pubname">Publisher</label>
-                                        <input id="pubname" name="pubname" type="text" class="form-control">
+                                        <input id="pubname" name="pubname" type="text" value="BANDAI NAMCO Entertainment Europe" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="mb-3">
                                         <label class="form-label" for="price">Price</label>
-                                        <input id="price" class="form-control input-mask text-start" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'">
+                                        <input id="price" value="29.99" class="form-control input-mask text-start" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'">
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="mb-3">
                                         <label class="form-label" for="discount">Discount</label>
-                                        <input id="price" class="form-control input-mask text-start" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'suffix': '%', 'placeholder': '0'">
+                                        <input id="price" value="33.33" class="form-control input-mask text-start" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'suffix': '%', 'placeholder': '0'">
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                         <select class="form-control select2">
                                             <option>None</option>
                                             <option value="RP">Role-playing</option>
-                                            <option value="HR">Horror</option>
+                                            <option value="HR" selected>Horror</option>
                                             <option value="PZ">Puzzle</option>
                                         </select>
                                     </div>
@@ -114,10 +114,10 @@
                                     <div class="mb-3">
                                         <label class="form-label" class="control-label">Tags</label>
                                         <select class="select2 form-control select2-multiple" multiple="multiple" data-placeholder="Choose ...">
-                                            <option value="AAA">AAA</option>
+                                            <option value="AAA" selected>AAA</option>
                                             <option value="SP">Single Player</option>
-                                            <option value="AC">Adult Content</option>
-                                            <option value="MP">Multiplayer</option>
+                                            <option value="AC" selected>Adult Content</option>
+                                            <option value="MP" selected>Multiplayer</option>
                                         </select>
                                     </div>
                                 </div>
