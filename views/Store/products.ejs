@@ -1,315 +1,357 @@
 <%- contentFor('HeaderCss') %>
+<!-- DataTables -->
+<link
+  href="public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
 
-<!-- ION Slider -->
-<link href="public/assets/libs/ion-rangeslider/css/ion.rangeSlider.min.css" rel="stylesheet" type="text/css"/>
+<!-- Responsive datatable examples -->
+<link
+  href="public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+
+<!-- Lightbox css -->
+<link
+  href="public/assets/libs/magnific-popup/magnific-popup.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+
+<style>
+  td {
+    white-space: normal !important;
+  }
+</style>
 
 <%- contentFor('breadcrumb') %>
 
 <!-- start page title -->
 <div class="row">
-    <div class="col-12">
-        <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">Products</h4>
+  <div class="col-12">
+    <div
+      class="page-title-box d-flex align-items-center justify-content-between"
+    >
+      <h4 class="mb-0">Products</h4>
 
-            <div class="page-title-right">
-                <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Store</a></li>
-                    <li class="breadcrumb-item active">Products</li>
-                </ol>
-            </div>
-
-        </div>
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item">
+            <a href="javascript: void(0);">Store</a>
+          </li>
+          <li class="breadcrumb-item active">Products</li>
+        </ol>
+      </div>
     </div>
+  </div>
 </div>
 <!-- end page title -->
 
 <%- contentFor('body') %>
 
 <div class="row">
-    <div class="col-xl-3 col-lg-4">
-        <div class="card">
-            <div class="card-header bg-transparent border-bottom">
-                <h5 class="mb-0">Filters</h5>
-            </div>
+  <div class="col-lg-12">
+    <div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-success waves-effect waves-light mb-3"
+          onclick="window.location.href='add-product'"
+        >
+          <i class="mdi mdi-plus me-1"></i> Add Product
+        </button>
+      </div>
 
-            <div class="p-4">
-                <h5 class="font-size-14 mb-3">Categories</h5>
-                    <div class="card p-2 border shadow-none">
-                        <ul class="list-unstyled categories-list mb-0">
-                            <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i>RPG</a></li>
-                            <li class="active"><a href="#"><i class="mdi mdi-circle-medium me-1"></i>Horror</a></li>
-                            <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i>Puzzle</a></li>
-                            <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i>Adventure</a></li>
-                            <li><a href="#"><i class="mdi mdi-circle-medium me-1"></i>Simulator</a></li>
-                        </ul>
-                    </div>
-            </div>
-              
+      <div class="table-responsive mb-4">
+        <table
+          class="
+            table table-centered
+            datatable
+            dt-responsive
+            nowrap
+            table-card-list
+          "
+          style="border-collapse: collapse; border-spacing: 0 12px; width: 100%"
+        >
+          <thead>
+            <tr class="bg-transparent">
+              <th style="width: 10px">No.</th>
+              <th style="width: 80px">Product ID</th>
+              <th>Poster</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Discount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
 
-            <div class="p-4 border-top">
-                <div>
-                    <h5 class="font-size-14 mb-4">Price</h5>
-                    <input type="text" id="pricerange">
-                </div>
-            </div>
+              <td>
+                <a href="javascript: void(0);" class="text-dark fw-bold"
+                  >#PR0001</a
+                >
+              </td>
 
-            <div class="custom-accordion">
-                <div class="p-4 border-top">
-                    <div>
-                        <h5 class="font-size-14 mb-0"><a href="#filterproducttag-collapse" class="text-dark d-block" data-bs-toggle="collapse">Tags<i class="mdi mdi-chevron-up float-end accor-down-icon"></i></a></h5>
-                        <div class="collapse show" id="filterproducttag-collapse">
-                            <div class="mt-4">
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="tagCheck1">
-                                    <label class="form-check-label" for="tagCheck1">AAA</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="tagCheck2">
-                                    <label class="form-check-label" for="tagCheck2">Single Player</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="tagCheck3">
-                                    <label class="form-check-label" for="tagCheck3">Multiplayer</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="checkbox" class="form-check-input" id="tagCheck4">
-                                    <label class="form-check-label" for="tagCheck4">Adult Content</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <td>
+                <img
+                  src="public/assets/images/product/img-1.jpg"
+                  alt=""
+                  class="img-fluid d-block rounded"
+                  style="height: 100px"
+                />
+              </td>
 
-                <div class="p-4 border-top">
-                    <div>
-                        <h5 class="font-size-14 mb-0"><a href="#filterproduct-color-collapse" class="text-dark d-block" data-bs-toggle="collapse">Customer Rating <i class="mdi mdi-chevron-up float-end accor-down-icon"></i></a></h5>
+              <td>
+                <span>The Dark Pictures: Man of Medan</span>
+              </td>
 
-                        <div class="collapse show" id="filterproduct-color-collapse">
-                            <div class="mt-4">
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio1" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio1">4 <i class="mdi mdi-star text-warning"></i>  & Above</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio2" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio2">3 <i class="mdi mdi-star text-warning"></i>  & Above</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio3" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio3">2 <i class="mdi mdi-star text-warning"></i>  & Above</label>
-                                </div>
-                                <div class="form-check mt-2">
-                                    <input type="radio" id="productratingRadio4" name="productratingRadio1" class="form-check-input">
-                                    <label class="form-check-label" for="productratingRadio4">1 <i class="mdi mdi-star text-warning"></i></label>
-                                </div>
-                            </div>
-                        </div>
+              <td>Horror</td>
 
-                    </div>
-                </div>
+              <td>$29.99</td>
 
-                <div class="p-4 border-top">
-                    <div>
-                        <h5 class="font-size-14 mb-0"><a href="#filterproduct-discount-collapse" class="collapsed text-dark d-block" data-bs-toggle="collapse">Discount <i class="mdi mdi-chevron-up float-end accor-down-icon"></i></a></h5>
+              <td>None</td>
 
-                        <div class="collapse" id="filterproduct-discount-collapse">
-                            <div class="mt-4">
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio1" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio1">50% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio2" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio2">40% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio3" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio3">30% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio4" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio4">20% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio5" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio5">10% or more</label>
-                                </div>
-                                <div class="custom-control custom-radio mt-2">
-                                    <input type="radio" id="productdiscountRadio6" name="productdiscountRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="productdiscountRadio6">Less than 10%</label>
-                                </div>
-                            </div>
-                        </div>
+              <td>
+                <a href="javascript:void(0);" class="px-3 text-primary"
+                  ><i class="uil uil-pen font-size-18"></i
+                ></a>
+                <a href="javascript:void(0);" class="px-3 text-danger"
+                  ><i class="uil uil-trash-alt font-size-18"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
 
-                    </div>
-                </div>
+              <td>
+                <a href="javascript: void(0);" class="text-dark fw-bold"
+                  >#PR0002</a
+                >
+              </td>
 
-            </div>
-        </div>
+              <td>
+                <img
+                  src="public/assets/images/product/img-2.jpg"
+                  alt=""
+                  class="img-fluid d-block rounded"
+                  style="height: 100px"
+                />
+              </td>
+
+              <td>
+                <span>PHOGS</span>
+              </td>
+
+              <td>Puzzle</td>
+
+              <td>$12.49</td>
+
+              <td>None</td>
+
+              <td>
+                <a href="javascript:void(0);" class="px-3 text-primary"
+                  ><i class="uil uil-pen font-size-18"></i
+                ></a>
+                <a href="javascript:void(0);" class="px-3 text-danger"
+                  ><i class="uil uil-trash-alt font-size-18"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+
+              <td>
+                <a href="javascript: void(0);" class="text-dark fw-bold"
+                  >#PR0003</a
+                >
+              </td>
+
+              <td>
+                <img
+                  src="public/assets/images/product/img-3.jpg"
+                  alt=""
+                  class="img-fluid d-block rounded"
+                  style="height: 100px"
+                />
+              </td>
+
+              <td>
+                <span>The Evil Within</span>
+              </td>
+
+              <td>Horror</td>
+
+              <td>$19.99</td>
+
+              <td>None</td>
+
+              <td>
+                <a href="javascript:void(0);" class="px-3 text-primary"
+                  ><i class="uil uil-pen font-size-18"></i
+                ></a>
+                <a href="javascript:void(0);" class="px-3 text-danger"
+                  ><i class="uil uil-trash-alt font-size-18"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+
+              <td>
+                <a href="javascript: void(0);" class="text-dark fw-bold"
+                  >#PR0004</a
+                >
+              </td>
+
+              <td>
+                <img
+                  src="public/assets/images/product/img-4.jpg"
+                  alt=""
+                  class="img-fluid d-block rounded"
+                  style="height: 100px"
+                />
+              </td>
+
+              <td>Human Fall Flat</td>
+
+              <td>
+                <span>Puzzle</span>
+              </td>
+
+              <td>$6.79</td>
+
+              <td>30%</td>
+
+              <td>
+                <a href="javascript:void(0);" class="px-3 text-primary"
+                  ><i class="uil uil-pen font-size-18"></i
+                ></a>
+                <a href="javascript:void(0);" class="px-3 text-danger"
+                  ><i class="uil uil-trash-alt font-size-18"></i
+                ></a>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+
+              <td>
+                <a href="javascript: void(0);" class="text-dark fw-bold"
+                  >#PR0005</a
+                >
+              </td>
+
+              <td>
+                <img
+                  src="public/assets/images/product/img-5.jpg"
+                  alt=""
+                  class="img-fluid d-block rounded"
+                  style="height: 100px"
+                />
+              </td>
+
+              <td>Assassin's Creed: Valhalla</td>
+
+              <td>
+                <span>Action</span>
+              </td>
+
+              <td>$59.99</td>
+
+              <td>None</td>
+
+              <td>
+                <a href="javascript:void(0);" class="px-3 text-primary"
+                  ><i class="uil uil-pen font-size-18"></i
+                ></a>
+                <a href="javascript:void(0);" class="px-3 text-danger"
+                  ><i class="uil uil-trash-alt font-size-18"></i
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-    <div class="col-xl-9 col-lg-8">
-        <div class="card">
-            <div class="card-body">
-                <div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h5>Showing result for "Horror"</h5>
-                                <ol class="breadcrumb p-0 bg-transparent mb-2">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Store</a></li>
-                                    <li class="breadcrumb-item active">Horror</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-inline float-md-end">
-                                <div class="search-box ml-2">
-                                    <div class="position-relative">
-                                        <input type="text" class="form-control bg-light border-light rounded" placeholder="Search...">
-                                        <i class="mdi mdi-magnify search-icon"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-
-                    <ul class="nav nav-tabs nav-tabs-custom mt-3 mb-2 ecommerce-sortby-list">
-                        <li class="nav-item">
-                            <a class="nav-link disabled fw-medium" href="#" tabindex="-1" aria-disabled="true">Sort by:</a>
-                          </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Popularity</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Newest</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Discount</a>
-                        </li>  
-                    </ul>
-
-                    <div class="row">
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <div class="product-ribbon badge bg-warning">
-                                        Trending
-                                    </div>
-                                    <img src="public/assets/images/product/img-1.jpg" alt="" class="img-fluid mx-auto d-block rounded" style="max-height: 320px; min-height: 320px;">
-                                </div>
-                                <div class="text-center product-content p-5">
-                                    <h5 class="mb-1"><a href="product-detail" class="text-dark">Man of Medan</a></h5>
-                                    <p class="text-muted font-size-13">Horror</p>
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$29.99</del></span> $19.99</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <div class="product-ribbon badge bg-danger">
-                                        - 20 %
-                                    </div>
-                                    <img src="public/assets/images/product/img-2.jpg" alt="" class="img-fluid mx-auto d-block rounded" style="max-height: 320px; min-height: 320px;">
-                                </div>
-                                <div class="text-center product-content p-5">
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Devour</a></h5>
-                                    <p class="text-muted font-size-13">Horror</p>
-                                    <h5 class="mt-3 mb-0"><span class="text-muted me-2"><del>$4.99</del></span> $3.99</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <img src="public/assets/images/product/img-3.jpg" alt="" class="img-fluid mx-auto d-block rounded" style="max-height: 320px; min-height: 320px;">
-                                </div>
-                                <div class="text-center product-content p-5">
-                                    <h5 class="mb-1"><a href="#" class="text-dark">The Evil Within</a></h5>
-                                    <p class="text-muted font-size-13">Horror</p>
-                                    <h5 class="mt-3 mb-0">$19.99</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <img src="public/assets/images/product/img-4.jpg" alt="" class="img-fluid mx-auto d-block rounded" style="max-height: 320px; min-height: 320px;">
-                                </div>
-                                <div class="text-center product-content p-5">
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Visage</a></h5>
-                                    <p class="text-muted font-size-13">Horror</p>
-                                    <h5 class="mt-3 mb-0">$34.99</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="product-box">
-                                <div class="product-img pt-4 px-4">
-                                    <img src="public/assets/images/product/img-5.jpg" alt="" class="img-fluid mx-auto d-block rounded" style="max-height: 320px; min-height: 320px;">
-                                </div>
-                                <div class="text-center product-content p-5">
-                                    <h5 class="mb-1"><a href="#" class="text-dark">Resident Evil 7: Biohazard</a></h5>
-                                    <p class="text-muted font-size-13">Horror, Survival</p>
-                                    <h5 class="mt-3 mb-0">$29.99</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end row -->
-
-                    <div class="row mt-4">
-                        <div class="col-sm-6">
-                            <div>
-                                <p class="mb-sm-0">Page 2 of 84</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="float-sm-end">
-                                <ul class="pagination pagination-rounded mb-sm-0">
-                                    <li class="page-item disabled">
-                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">1</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a href="#" class="page-link">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  </div>
 </div>
 <!-- end row -->
 
+<!-- init pop-up form-->
+<div class="card mfp-hide mfp-popup-form mx-auto" id="add-cat">
+  <div class="card-body">
+    <h4 class="mt-0 mb-4">Add Category</h4>
+    <form>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <label class="form-label" for="name">Category ID</label>
+            <input
+              type="text"
+              class="form-control"
+              id="id"
+              placeholder="Enter Category ID"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <label class="form-label" for="email">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter Name"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="mb-3">
+            <label class="form-label" for="subject">Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              rows="3"
+              placeholder="Enter Description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-end">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <%- contentFor('FooterJs') %>
 
-<!-- Ion Range Slider-->
-<script src="public/assets/libs/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+<!-- Required datatable js -->
+<script src="public/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="public/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="public/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="public/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 
 <!-- init js -->
-<script src="public/assets/js/pages/product-filter-range.init.js"></script>
+<script src="public/assets/js/pages/ecommerce-datatables.init.js"></script>
+
+<!-- Magnific Popup-->
+<script src="public/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- lightbox init js-->
+<script src="public/assets/js/pages/lightbox.init.js"></script>
 
 <%- contentFor('BottomJs') %>
