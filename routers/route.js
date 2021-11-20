@@ -7,6 +7,7 @@ const productsRouter = require('./product');
 const customerRouter = require('./customer');
 const invoiceRouter = require('./invoice');
 const siteRouter = require('./site');
+const editProductRouter = require('./edit-product');
 
 module.exports = function (app) {
   function isUserAllowed(req, res, next) {
@@ -18,17 +19,25 @@ module.exports = function (app) {
     }
   }
 
+  app.use((req, res, next) => {
+    if (req.path.substr(-1) === '/' && req.path.length > 1) {
+      const query = req.url.slice(req.path.length);
+      const safepath = req.path.slice(0, -1).replace(/\/+/g, '/');
+      res.redirect(301, safepath + query);
+    } else {
+      next();
+    }
+  });
+
   // Store
 
   app.use('/products', isUserAllowed, productsRouter);
 
+  app.use('/edit-product', isUserAllowed, editProductRouter);
+
   app.get('/add-product', isUserAllowed, function (req, res) {
     res.locals = { title: 'Add Product' };
     res.render('Store/add-product');
-  });
-  app.get('/edit-product', isUserAllowed, function (req, res) {
-    res.locals = { title: 'Edit Product' };
-    res.render('Store/edit-product');
   });
 
   //Customers

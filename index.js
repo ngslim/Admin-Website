@@ -12,6 +12,9 @@ const AuthController = require('./controllers/AuthController');
 // import Router file
 const pageRouter = require('./routers/route');
 
+const db = require('./config/db');
+db.connect();
+
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
@@ -35,7 +38,7 @@ app.use(
 );
 app.use(flash());
 
-app.use('/public', express.static('public'));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/layouts/', function (req, res) {
   res.render('view');

@@ -2,14 +2,14 @@
 
 <!-- select2 css -->
 <link
-  href="public/assets/libs/select2/css/select2.min.css"
+  href="/public/assets/libs/select2/css/select2.min.css"
   rel="stylesheet"
   type="text/css"
 />
 
 <!-- dropzone css -->
 <link
-  href="public/assets/libs/dropzone/min/dropzone.min.css"
+  href="/public/assets/libs/dropzone/min/dropzone.min.css"
   rel="stylesheet"
   type="text/css"
 />
@@ -94,7 +94,7 @@
                       id="productname"
                       name="productname"
                       type="text"
-                      value="The Dark Picture: Man of Medan"
+                      value="<%- product.name %>"
                       class="form-control"
                     />
                   </div>
@@ -119,7 +119,7 @@
                       id="devname"
                       name="devname"
                       type="text"
-                      value="Supermassive Games"
+                      value="<%- product.dev %>"
                       class="form-control"
                     />
                   </div>
@@ -131,7 +131,7 @@
                       id="pubname"
                       name="pubname"
                       type="text"
-                      value="BANDAI NAMCO Entertainment Europe"
+                      value="<%- product.publisher %>"
                       class="form-control"
                     />
                   </div>
@@ -141,7 +141,7 @@
                     <label class="form-label" for="price">Price</label>
                     <input
                       id="price"
-                      value="29.99"
+                      value="<%- product.price %>"
                       class="form-control input-mask text-start"
                       data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'"
                     />
@@ -151,8 +151,8 @@
                   <div class="mb-3">
                     <label class="form-label" for="discount">Discount</label>
                     <input
-                      id="price"
-                      value="33.33"
+                      id="discount"
+                      value="<%- product.discount %>"
                       class="form-control input-mask text-start"
                       data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'suffix': '%', 'placeholder': '0'"
                     />
@@ -192,7 +192,12 @@
 
               <div class="mb-0">
                 <label class="form-label" for="desc">Product Description</label>
-                <textarea class="form-control" id="desc" rows="4"></textarea>
+                <textarea
+                  class="form-control"
+                  id="desc"
+                  rows="4"
+                  value="<%- product.description %>"
+                ></textarea>
               </div>
             </form>
           </div>
@@ -482,18 +487,18 @@
 <%- contentFor('FooterJs') %>
 
 <!-- select 2 plugin -->
-<script src="public/assets/libs/select2/js/select2.min.js"></script>
+<script src="/public/assets/libs/select2/js/select2.min.js"></script>
 
 <!-- dropzone plugin -->
-<script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
+<script src="/public/assets/libs/dropzone/min/dropzone.min.js"></script>
 
 <!-- init js -->
-<script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
+<script src="/public/assets/js/pages/ecommerce-add-product.init.js"></script>
 
 <!-- form mask -->
-<script src="public/assets/libs/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="/public/assets/libs/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 
 <!-- form mask init -->
-<script src="public/assets/js/pages/form-mask.init.js"></script>
+<script src="/public/assets/js/pages/form-mask.init.js"></script>
 
 <%- contentFor('BottomJs') %>
