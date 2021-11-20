@@ -2,14 +2,14 @@
 
 <!-- select2 css -->
 <link
-  href="public/assets/libs/select2/css/select2.min.css"
+  href="/public/assets/libs/select2/css/select2.min.css"
   rel="stylesheet"
   type="text/css"
 />
 
 <!-- dropzone css -->
 <link
-  href="public/assets/libs/dropzone/min/dropzone.min.css"
+  href="/public/assets/libs/dropzone/min/dropzone.min.css"
   rel="stylesheet"
   type="text/css"
 />
@@ -38,61 +38,58 @@
 <!-- end page title -->
 
 <%- contentFor('body') %>
-
-<div class="row">
-  <div class="col-lg-12">
-    <div id="addproduct-accordion" class="custom-accordion">
-      <div class="card">
-        <a
-          href="#addproduct-billinginfo-collapse"
-          class="text-dark"
-          data-bs-toggle="collapse"
-          aria-expanded="true"
-          aria-controls="addproduct-billinginfo-collapse"
-        >
-          <div class="p-4">
-            <div class="d-flex align-items-center">
-              <div class="me-3">
-                <div class="avatar-xs">
-                  <div
-                    class="
-                      avatar-title
-                      rounded-circle
-                      bg-soft-primary
-                      text-primary
-                    "
-                  >
-                    01
+<form method="post" action="/products/store">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="addproduct-accordion" class="custom-accordion">
+        <div class="card">
+          <a
+            href="#addproduct-billinginfo-collapse"
+            class="text-dark"
+            data-bs-toggle="collapse"
+            aria-expanded="true"
+            aria-controls="addproduct-billinginfo-collapse"
+          >
+            <div class="p-4">
+              <div class="d-flex align-items-center">
+                <div class="me-3">
+                  <div class="avatar-xs">
+                    <div
+                      class="
+                        avatar-title
+                        rounded-circle
+                        bg-soft-primary
+                        text-primary
+                      "
+                    >
+                      01
+                    </div>
                   </div>
                 </div>
+                <div class="flex-1 overflow-hidden">
+                  <h5 class="font-size-16 mb-1">Product Info</h5>
+                  <p class="text-muted text-truncate mb-0">
+                    Select the infomation you want to edit
+                  </p>
+                </div>
+                <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
               </div>
-              <div class="flex-1 overflow-hidden">
-                <h5 class="font-size-16 mb-1">Product Info</h5>
-                <p class="text-muted text-truncate mb-0">
-                  Fill all information below
-                </p>
-              </div>
-              <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <div
-          id="addproduct-billinginfo-collapse"
-          class="collapse show"
-          data-bs-parent="#addproduct-accordion"
-        >
-          <div class="p-4 border-top">
-            <form>
+          <div
+            id="addproduct-billinginfo-collapse"
+            class="collapse show"
+            data-bs-parent="#addproduct-accordion"
+          >
+            <div class="p-4 border-top">
               <div class="row">
                 <div class="col-lg-9">
                   <div class="mb-3">
-                    <label class="form-label" for="productname"
-                      >Product Name</label
-                    >
+                    <label class="form-label" for="name">Product Name</label>
                     <input
-                      id="productname"
-                      name="productname"
+                      id="name"
+                      name="name"
                       type="text"
                       class="form-control"
                     />
@@ -105,7 +102,8 @@
                       id="release"
                       class="form-control"
                       type="date"
-                      value="2019-08-19"
+                      name="date"
+                      value="2019-08-30"
                     />
                   </div>
                 </div>
@@ -113,10 +111,10 @@
               <div class="row">
                 <div class="col-lg-4">
                   <div class="mb-3">
-                    <label class="form-label" for="devname">Developer</label>
+                    <label class="form-label" for="dev">Developer</label>
                     <input
-                      id="devname"
-                      name="devname"
+                      id="dev"
+                      name="dev"
                       type="text"
                       class="form-control"
                     />
@@ -124,10 +122,10 @@
                 </div>
                 <div class="col-lg-4">
                   <div class="mb-3">
-                    <label class="form-label" for="pubname">Publisher</label>
+                    <label class="form-label" for="publisher">Publisher</label>
                     <input
-                      id="pubname"
-                      name="pubname"
+                      id="publisher"
+                      name="publisher"
                       type="text"
                       class="form-control"
                     />
@@ -136,359 +134,184 @@
                 <div class="col-lg-2">
                   <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
-                    <input
-                      id="price"
-                      class="form-control input-mask text-start"
-                      data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': '$ ', 'placeholder': '0'"
-                    />
+                    <div class="input-group">
+                      <div class="input-group-text">$</div>
+                      <input
+                        id="price"
+                        name="price"
+                        class="form-control input-mask text-start"
+                        data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div class="col-lg-2">
                   <div class="mb-3">
                     <label class="form-label" for="discount">Discount</label>
-                    <input
-                      id="price"
-                      class="form-control input-mask text-start"
-                      data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'suffix': '%', 'placeholder': '0'"
-                    />
+                    <div class="input-group">
+                      <input
+                        id="discount"
+                        name="discount"
+                        class="form-control input-mask text-start"
+                        data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
+                      />
+                      <div class="input-group-text">%</div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <label class="form-label" class="control-label"
-                      >Category</label
-                    >
-                    <select class="form-control select2">
-                      <option>None</option>
-                      <option value="RP">Role-playing</option>
-                      <option value="HR">Horror</option>
-                      <option value="PZ">Puzzle</option>
-                    </select>
+                <div class="mb-3">
+                  <label class="form-label" for="tags">Tags</label>
+                  <% for(var i=0; i < categories.length; i++) { %>
+                  <div class="col-md-6">
+                    <p><%- categories[i].name %></p>
+                    <% for(var j = 0; j < tags.length; j++) { %>
+                    <div>
+                      <% if(tags[j].category == categories[i].name) { %>
+                      <div class="form-check mb-3">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="<%- tags[j].name %>"
+                          name="tag"
+                          value="<%- tags[j].name %>"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="<%- tags[j].name %>"
+                        >
+                          <%- tags[j].name %>
+                        </label>
+                      </div>
+                      <% } %>
+                    </div>
+                    <% } %>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <label class="form-label" class="control-label">Tags</label>
-                    <select
-                      class="select2 form-control select2-multiple"
-                      multiple="multiple"
-                      data-placeholder="Choose ..."
-                    >
-                      <option value="AAA">AAA</option>
-                      <option value="SP">Single Player</option>
-                      <option value="AC">Adult Content</option>
-                      <option value="MP">Multiplayer</option>
-                    </select>
-                  </div>
+                  <% } %>
                 </div>
               </div>
 
               <div class="mb-0">
                 <label class="form-label" for="desc">Product Description</label>
-                <textarea class="form-control" id="desc" rows="4"></textarea>
+                <textarea
+                  class="form-control"
+                  id="desc"
+                  name="description"
+                  rows="4"
+                ></textarea>
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <a
-          href="#addproduct-img-collapse"
-          class="text-dark collapsed"
-          data-bs-toggle="collapse"
-          aria-haspopup="true"
-          aria-expanded="false"
-          aria-haspopup="true"
-          aria-controls="addproduct-img-collapse"
-        >
-          <div class="p-4">
-            <div class="d-flex align-items-center">
-              <div class="me-3">
-                <div class="avatar-xs">
-                  <div
-                    class="
-                      avatar-title
-                      rounded-circle
-                      bg-soft-primary
-                      text-primary
-                    "
-                  >
-                    02
-                  </div>
-                </div>
-              </div>
-              <div class="flex-1 overflow-hidden">
-                <h5 class="font-size-16 mb-1">Product Image</h5>
-                <p class="text-muted text-truncate mb-0">
-                  Fill all information below
-                </p>
-              </div>
-              <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
             </div>
           </div>
-        </a>
-
-        <div
-          id="addproduct-img-collapse"
-          class="collapse"
-          data-bs-parent="#addproduct-accordion"
-        >
-          <div class="p-4 border-top">
-            <form action="#" class="dropzone">
-              <div class="fallback">
-                <input name="poster" type="file" multiple="multiple" />
-              </div>
-              <div class="dz-message needsclick">
-                <div class="mb-3">
-                  <i class="display-4 text-muted uil uil-cloud-upload"></i>
-                </div>
-
-                <h4>Drop files here or click to upload poster.</h4>
-              </div>
-            </form>
-          </div>
         </div>
-
-        <div
-          id="addproduct-img-collapse"
-          class="collapse"
-          data-bs-parent="#addproduct-accordion"
-        >
-          <div class="p-4 border-top">
-            <form action="#" class="dropzone">
-              <div class="fallback">
-                <input name="screenshots" type="file" multiple="multiple" />
-              </div>
-              <div class="dz-message needsclick">
-                <div class="mb-3">
-                  <i class="display-4 text-muted uil uil-cloud-upload"></i>
-                </div>
-
-                <h4>Drop files here or click to upload screenshots.</h4>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <a
-          href="#addproduct-reqdata-collapse"
-          class="text-dark collapsed"
-          data-bs-toggle="collapse"
-          aria-haspopup="true"
-          aria-expanded="false"
-          aria-haspopup="true"
-          aria-controls="addproduct-metadata-collapse"
-        >
-          <div class="p-4">
-            <div class="d-flex align-items-center">
-              <div class="me-3">
-                <div class="avatar-xs">
-                  <div
-                    class="
-                      avatar-title
-                      rounded-circle
-                      bg-soft-primary
-                      text-primary
-                    "
-                  >
-                    03
+        <div class="card">
+          <a
+            href="#addproduct-img-collapse"
+            class="text-dark collapsed"
+            data-bs-toggle="collapse"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="addproduct-img-collapse"
+          >
+            <div class="p-4">
+              <div class="d-flex align-items-center">
+                <div class="me-3">
+                  <div class="avatar-xs">
+                    <div
+                      class="
+                        avatar-title
+                        rounded-circle
+                        bg-soft-primary
+                        text-primary
+                      "
+                    >
+                      02
+                    </div>
                   </div>
                 </div>
+                <div class="flex-1 overflow-hidden">
+                  <h5 class="font-size-16 mb-1">Product Image</h5>
+                  <p class="text-muted text-truncate mb-0">
+                    Fill all information below
+                  </p>
+                </div>
+                <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
               </div>
-              <div class="flex-1 overflow-hidden">
-                <h5 class="font-size-16 mb-1">System Requirements</h5>
-                <p class="text-muted text-truncate mb-0">
-                  Fill all information below
-                </p>
+            </div>
+          </a>
+
+          <div
+            id="addproduct-img-collapse"
+            class="collapse"
+            data-bs-parent="#addproduct-accordion"
+          >
+            <div class="p-4 border-top">
+              <div class="dropzone">
+                <div class="fallback">
+                  <input name="poster" type="file" multiple="multiple" />
+                </div>
+                <div class="dz-message needsclick">
+                  <div class="mb-3">
+                    <i class="display-4 text-muted uil uil-cloud-upload"></i>
+                  </div>
+                  <h4>Drop files here or click to upload poster.</h4>
+                </div>
               </div>
-              <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
             </div>
           </div>
-        </a>
 
-        <div
-          id="addproduct-reqdata-collapse"
-          class="collapse"
-          data-bs-parent="#addproduct-accordion"
-        >
-          <div class="p-4 border-top">
-            <form>
-              <div class="mt-5 mt-lg-4">
-                <h5 class="font-size-14 mb-4">
-                  <i class="mdi mdi-arrow-right text-primary me-1"></i>Minimum
-                  Specifications
-                </h5>
-                <div class="row mb-4">
-                  <label for="min-os" class="col-sm-3 col-form-label">OS</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="min-os" />
-                  </div>
+          <div
+            id="addproduct-img-collapse"
+            class="collapse"
+            data-bs-parent="#addproduct-accordion"
+          >
+            <div class="p-4 border-top">
+              <div class="dropzone">
+                <div class="fallback">
+                  <input name="screenshots" type="file" multiple="multiple" />
                 </div>
-                <div class="row mb-4">
-                  <label for="min-processor" class="col-sm-3 col-form-label"
-                    >Processor</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="min-processor"
-                    />
+                <div class="dz-message needsclick">
+                  <div class="mb-3">
+                    <i class="display-4 text-muted uil uil-cloud-upload"></i>
                   </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="min-memory" class="col-sm-3 col-form-label"
-                    >Memory</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="min-memory"
-                    />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="min-graphics" class="col-sm-3 col-form-label"
-                    >Graphics</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="min-graphics" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="min-directx" class="col-sm-3 col-form-label"
-                    >DirectX</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="min-directx" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="min-network" class="col-sm-3 col-form-label"
-                    >Network</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="min-network" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="min-storage" class="col-sm-3 col-form-label"
-                    >Storage</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="min-storage" />
-                  </div>
+                  <h4>Drop files here or click to upload screenshots.</h4>
                 </div>
               </div>
-              <div class="mt-5 mt-lg-4">
-                <h5 class="font-size-14 mb-4">
-                  <i class="mdi mdi-arrow-right text-primary me-1"></i
-                  >Recommended Specifications
-                </h5>
-                <div class="row mb-4">
-                  <label for="rec-os" class="col-sm-3 col-form-label">OS</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="rec-os" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="rec-processor" class="col-sm-3 col-form-label"
-                    >Processor</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="rec-processor"
-                    />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="rec-memory" class="col-sm-3 col-form-label"
-                    >Memory</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="rec-memory"
-                    />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="rec-graphics" class="col-sm-3 col-form-label"
-                    >Graphics</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="rec-graphics" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="rec-directx" class="col-sm-3 col-form-label"
-                    >DirectX</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="rec-directx" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="rec-network" class="col-sm-3 col-form-label"
-                    >Network</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="rec-network" />
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <label for="rec-storage" class="col-sm-3 col-form-label"
-                    >Storage</label
-                  >
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="rec-storage" />
-                  </div>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- end row -->
+  <!-- end row -->
 
-<div class="row mb-4">
-  <div class="col text-end">
-    <a href="#" class="btn btn-danger">
-      <i class="uil uil-times me-1"></i> Cancel
-    </a>
-    <a href="#" class="btn btn-success">
-      <i class="uil uil-file-alt me-1"></i> Save
-    </a>
+  <div class="row mb-4">
+    <div class="col text-end">
+      <a href="/products" class="btn btn-danger">
+        <i class="uil uil-times me-1"></i> Cancel
+      </a>
+      <button type="submit" class="btn btn-success">
+        <i class="uil uil-file-alt me-1"></i> Save
+      </button>
+    </div>
+    <!-- end col -->
   </div>
-  <!-- end col -->
-</div>
-<!-- end row-->
+  <!-- end row-->
+</form>
 
 <%- contentFor('FooterJs') %>
 
 <!-- select 2 plugin -->
-<script src="public/assets/libs/select2/js/select2.min.js"></script>
+<script src="/public/assets/libs/select2/js/select2.min.js"></script>
 
 <!-- dropzone plugin -->
-<script src="public/assets/libs/dropzone/min/dropzone.min.js"></script>
-
-<!-- init js -->
-<script src="public/assets/js/pages/ecommerce-add-product.init.js"></script>
+<script src="/public/assets/libs/dropzone/min/dropzone.min.js"></script>
 
 <!-- form mask -->
-<script src="public/assets/libs/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="/public/assets/libs/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 
 <!-- form mask init -->
-<script src="public/assets/js/pages/form-mask.init.js"></script>
+<script src="/public/assets/js/pages/form-mask.init.js"></script>
 
 <%- contentFor('BottomJs') %>

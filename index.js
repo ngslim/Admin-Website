@@ -33,6 +33,9 @@ app.use(
   })
 );
 
+app.use(express.urlencoded());
+app.use(express.json());
+
 app.use(
   session({ resave: false, saveUninitialized: true, secret: 'nodedemo' })
 );

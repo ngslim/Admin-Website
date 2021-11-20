@@ -3,7 +3,7 @@ const { mongooseToObject } = require('../util/mongoose');
 
 class EditProductController {
   // [GET] /edit-product/:id
-  detail(req, res, next) {
+  edit(req, res, next) {
     Product.findOne({ id: req.params.id })
       .then((product) => {
         res.locals = { title: 'Edit Product' };
