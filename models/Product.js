@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const Product = new Schema({
   id: { type: String, default: 'PR0000' },
   name: { type: String, default: 'NAN' },
-  category: { type: String, default: 'None' },
+  tag: { type: Array, default: 'None' },
   poster: {
     type: String,
     default:

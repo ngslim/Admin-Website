@@ -35,10 +35,7 @@ module.exports = function (app) {
 
   app.use('/edit-product', isUserAllowed, editProductRouter);
 
-  app.get('/add-product', isUserAllowed, function (req, res) {
-    res.locals = { title: 'Add Product' };
-    res.render('Store/add-product');
-  });
+  app.use('/add-product', isUserAllowed, productsRouter);
 
   //Customers
   app.use('/customers', isUserAllowed, customerRouter);

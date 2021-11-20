@@ -58,7 +58,7 @@
         <button
           type="button"
           class="btn btn-success waves-effect waves-light mb-3"
-          onclick="window.location.href='add-product'"
+          onclick="window.location.href='products/add-product'"
         >
           <i class="mdi mdi-plus me-1"></i> Add Product
         </button>
@@ -81,7 +81,7 @@
               <th style="width: 80px">Product ID</th>
               <th>Poster</th>
               <th>Name</th>
-              <th>Category</th>
+              <th>Tags</th>
               <th>Price</th>
               <th>Discount</th>
               <th>Action</th>
@@ -110,7 +110,7 @@
                 <span><%- products[i].name %></span>
               </td>
 
-              <td><%- products[i].category %></td>
+              <td><%- products[i].tag %></td>
 
               <td>$<%- products[i].price %></td>
 
@@ -136,60 +136,6 @@
 </div>
 <!-- end row -->
 
-<!-- init pop-up form-->
-<div class="card mfp-hide mfp-popup-form mx-auto" id="add-cat">
-  <div class="card-body">
-    <h4 class="mt-0 mb-4">Add Category</h4>
-    <form>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="mb-3">
-            <label class="form-label" for="name">Category ID</label>
-            <input
-              type="text"
-              class="form-control"
-              id="id"
-              placeholder="Enter Category ID"
-            />
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="mb-3">
-            <label class="form-label" for="email">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="Enter Name"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="mb-3">
-            <label class="form-label" for="subject">Description</label>
-            <textarea
-              class="form-control"
-              id="description"
-              rows="3"
-              placeholder="Enter Description"
-            ></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-end">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
 <%- contentFor('FooterJs') %>
 
 <!-- Required datatable js -->
@@ -202,11 +148,5 @@
 
 <!-- init js -->
 <script src="public/assets/js/pages/ecommerce-datatables.init.js"></script>
-
-<!-- Magnific Popup-->
-<script src="public/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-<!-- lightbox init js-->
-<script src="public/assets/js/pages/lightbox.init.js"></script>
 
 <%- contentFor('BottomJs') %>
