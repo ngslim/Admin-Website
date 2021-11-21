@@ -9,7 +9,7 @@ class ProductController {
     Product.find({})
       .then((products) => {
         res.locals = { title: 'Products' };
-        res.render('Store/products', {
+        res.render('Store/product', {
           products: products,
         });
       })
@@ -33,10 +33,47 @@ class ProductController {
       .catch(next);
   }
 
+  // [POST] /products/store
   store(req, res, next) {
-    //res.json(req.body);
     const product = new Product(req.body);
     product.save();
+    res.redirect('/product');
+  }
+
+  // [PUT] /product/:id
+  save(req, res, next) {
+    Product.updateOne({ id: req.params.id }, req.body)
+      .then(() => res.redirect('/product'))
+      .catch(next);
+  }
+
+  // [DELETE] /product/:_id
+  delete(req, res, next) {
+    Product.deleteOne({ _id: req.params._id })
+      .then(() => res.redirect('back'))
+      .catch(next);
+  }
+
+  // [GET] /product/:id
+  edit(req, res, next) {
+    Product.findOne({ id: req.params.id })
+      .then((product) => {
+        Category.find({})
+          .then((categories) => {
+            Tag.find({})
+              .then((tags) => {
+                res.locals = { title: 'Edit Product' };
+                res.render('Store/edit-product', {
+                  product: product,
+                  categories: categories,
+                  tags: tags,
+                });
+              })
+              .catch(next);
+          })
+          .catch(next);
+      })
+      .catch(next);
   }
 }
 

@@ -38,7 +38,7 @@
 <!-- end page title -->
 
 <%- contentFor('body') %>
-<form method="post" action="/products/store">
+<form method="post" action="/product/store">
   <div class="row">
     <div class="col-lg-12">
       <div id="addproduct-accordion" class="custom-accordion">
@@ -138,6 +138,7 @@
                       <div class="input-group-text">$</div>
                       <input
                         id="price"
+                        value="0"
                         name="price"
                         class="form-control input-mask text-start"
                         data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
@@ -151,6 +152,7 @@
                     <div class="input-group">
                       <input
                         id="discount"
+                        value="0"
                         name="discount"
                         class="form-control input-mask text-start"
                         data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
@@ -160,6 +162,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="mb-3">
                   <label class="form-label" for="tags">Tags</label>
@@ -204,6 +207,7 @@
             </div>
           </div>
         </div>
+
         <div class="card">
           <a
             href="#addproduct-img-collapse"
@@ -247,7 +251,7 @@
             data-bs-parent="#addproduct-accordion"
           >
             <div class="p-4 border-top">
-              <div class="dropzone">
+              <div action="#" class="dropzone form-control">
                 <div class="fallback">
                   <input name="poster" type="file" multiple="multiple" />
                 </div>
@@ -267,7 +271,7 @@
             data-bs-parent="#addproduct-accordion"
           >
             <div class="p-4 border-top">
-              <div class="dropzone">
+              <div action="#" class="dropzone">
                 <div class="fallback">
                   <input name="screenshots" type="file" multiple="multiple" />
                 </div>
@@ -288,7 +292,7 @@
 
   <div class="row mb-4">
     <div class="col text-end">
-      <a href="/products" class="btn btn-danger">
+      <a href="/product" class="btn btn-danger">
         <i class="uil uil-times me-1"></i> Cancel
       </a>
       <button type="submit" class="btn btn-success">

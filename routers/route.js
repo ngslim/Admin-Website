@@ -7,7 +7,6 @@ const productsRouter = require('./product');
 const customerRouter = require('./customer');
 const invoiceRouter = require('./invoice');
 const siteRouter = require('./site');
-const editProductRouter = require('./edit-product');
 
 module.exports = function (app) {
   function isUserAllowed(req, res, next) {
@@ -31,24 +30,20 @@ module.exports = function (app) {
 
   // Store
 
-  app.use('/products', isUserAllowed, productsRouter);
-
-  app.use('/edit-product', isUserAllowed, editProductRouter);
-
-  app.use('/add-product', isUserAllowed, productsRouter);
+  app.use('/product', isUserAllowed, productsRouter);
 
   //Customers
-  app.use('/customers', isUserAllowed, customerRouter);
+  app.use('/customer', isUserAllowed, customerRouter);
   app.get('/edit-customer', isUserAllowed, function (req, res) {
     res.locals = { title: 'Edit Customer' };
     res.render('Customers/edit-customer');
   });
 
   // Invoice
-  app.use('/invoices-list', isUserAllowed, invoiceRouter);
-  app.get('/invoices-detail', isUserAllowed, function (req, res) {
+  app.use('/invoice-list', isUserAllowed, invoiceRouter);
+  app.get('/invoice-detail', isUserAllowed, function (req, res) {
     res.locals = { title: 'Invoice Detail' };
-    res.render('Invoice/invoices-detail');
+    res.render('Invoice/invoice-detail');
   });
 
   // Contacts

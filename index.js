@@ -20,6 +20,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 app.use(bodyParser.json());
 const urlencodeParser = bodyParser.urlencoded({ extended: true });
+const methodOverride = require('method-override');
 
 app.use(
   session({
@@ -36,12 +37,14 @@ app.use(
 app.use(express.urlencoded());
 app.use(express.json());
 
+app.use(methodOverride('_method'));
+
 app.use(
   session({ resave: false, saveUninitialized: true, secret: 'nodedemo' })
 );
 app.use(flash());
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.get('/layouts/', function (req, res) {
   res.render('view');
