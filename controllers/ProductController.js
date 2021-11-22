@@ -42,7 +42,7 @@ class ProductController {
 
   // [PUT] /product/:id
   save(req, res, next) {
-    Product.updateOne({ id: req.params.id }, req.body)
+    Product.updateOne({ _id: req.params._id }, req.body)
       .then(() => res.redirect('/product'))
       .catch(next);
   }
@@ -54,9 +54,9 @@ class ProductController {
       .catch(next);
   }
 
-  // [GET] /product/:id
+  // [GET] /product/:_id
   edit(req, res, next) {
-    Product.findOne({ id: req.params.id })
+    Product.findOne({ _id: req.params._id })
       .then((product) => {
         Category.find({})
           .then((categories) => {
