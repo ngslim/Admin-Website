@@ -35,6 +35,7 @@ class ProductController {
 
   // [POST] /products/store
   store(req, res, next) {
+    console.log(req.body);
     const product = new Product(req.body);
     product.save();
     res.redirect('/product');

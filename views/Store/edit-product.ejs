@@ -270,42 +270,62 @@
               </div>
             </div>
           </a>
-
           <div
             id="addproduct-img-collapse"
             class="collapse"
             data-bs-parent="#addproduct-accordion"
           >
-            <div class="p-4 border-top">
-              <div action="#" class="dropzone form-control">
-                <div class="fallback">
-                  <input name="poster" type="file" multiple="multiple" />
-                </div>
-                <div class="dz-message needsclick">
-                  <div class="mb-3">
-                    <i class="display-4 text-muted uil uil-cloud-upload"></i>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="p-4 border-top">
+                  <div class="row">
+                    <div class="mb-3">
+                      <label class="form-label" for="desc">Poster</label>
+                    </div>
                   </div>
-                  <h4>Drop files here or click to upload poster.</h4>
+                  <div class="row">
+                    <div class="mb-3">
+                      <input
+                        id="poster"
+                        name="poster"
+                        type="file"
+                        multiple="multiple"
+                      />
+                    </div>
+                  </div>
+                  <img
+                    id="posterThumb"
+                    src="https://i.stack.imgur.com/Vkq2a.png"
+                    alt="Image preview..."
+                    class="img-fluid d-block rounded"
+                    style="width: max-content"
+                  />
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div
-            id="addproduct-img-collapse"
-            class="collapse"
-            data-bs-parent="#addproduct-accordion"
-          >
-            <div class="p-4 border-top">
-              <div action="#" class="dropzone">
-                <div class="fallback">
-                  <input name="screenshots" type="file" multiple="multiple" />
-                </div>
-                <div class="dz-message needsclick">
-                  <div class="mb-3">
-                    <i class="display-4 text-muted uil uil-cloud-upload"></i>
+              <div class="col-lg-6">
+                <div class="p-4 border-top">
+                  <div class="row">
+                    <div class="mb-3">
+                      <label class="form-label" for="desc">Screenshot</label>
+                    </div>
                   </div>
-                  <h4>Drop files here or click to upload screenshots.</h4>
+                  <div class="row">
+                    <div class="mb-3">
+                      <input
+                        id="screenshot"
+                        name="screenshot"
+                        type="file"
+                        multiple="multiple"
+                      />
+                    </div>
+                  </div>
+                  <img
+                    id="screenshotThumb"
+                    src="https://i.stack.imgur.com/Vkq2a.png"
+                    alt="Image preview..."
+                    class="img-fluid d-block rounded"
+                    style="width: max-content"
+                  />
                 </div>
               </div>
             </div>

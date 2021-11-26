@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Product = new Schema({
-  _id: { type: mongoose.Schema.Types.ObjectId },
   id: { type: String, default: 'PR0000', unique: true },
   name: { type: String, default: 'NAN' },
   tag: { type: Array, default: 'None' },
