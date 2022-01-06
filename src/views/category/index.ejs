@@ -1,0 +1,78 @@
+<%- contentFor('css_body') %>
+<!-- Datatable  -->
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+/>
+
+<link rel="stylesheet" href="/assets/css/custom-datatable.css" />
+
+<%- contentFor('body') %>
+<div class="breadcrumb">
+  <div class="page-title">Category</div>
+  <a href="/category/new" class="btn-full bg-success"
+    ><i class="bx bx-book-add"></i> New</a
+  >
+</div>
+
+<div class="page-body">
+  <table id="table" class="display nowrap" style="width: 100%">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th class="no-sort btn"></th>
+        <th class="no-sort btn"></th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<%- contentFor('js_body') %>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#table").DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: {
+        url: "/category",
+        type: "POST",
+      },
+      searching: false,
+      lengthChange: false,
+      pageLength: 5,
+      columnDefs: [
+        {
+          orderable: false,
+          targets: "no-sort",
+        },
+      ],
+      order: [0, "asc"],
+      columns: [
+        { data: "name" },
+        {
+          data: null,
+          render: function (data, type, row) {
+            return (
+              "<a class='fix' href='/category/update/" +
+              data._id +
+              "'><i class='bx bx-pen'></i></a>"
+            );
+          },
+        },
+        {
+          data: null,
+          render: function (data, type, row) {
+            return (
+              "<a class='delete' href='/category/delete/" +
+              data._id +
+              "'><i class='bx bx-eraser'></i></a>"
+            );
+          },
+        },
+      ],
+    });
+  });
+</script>
