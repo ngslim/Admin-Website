@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <div class="login_wrapper">
+      <form class="login" action="/auth/login" method="post">
+        <h1>Login</h1>
+        <input
+          class="input"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
+        <input
+          class="input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input type="submit" name="" value="Login" />
+        <span><%= notification %></span>
+        <span style="margin-top: 10px; cursor: pointer">
+          <a href="/auth/password-reset" style="color: #fff; font-size: 1.2rem">
+            Forgot your password?
+          </a>
+        </span>
+      </form>
+    </div>
+  </body>
+</html>
