@@ -12,7 +12,7 @@ const getUsers = async (req, res, next) => {
     const recordsTotal = await User.find({}).sort({
       [nameColSort]: order[0].dir,
     });
-    const data = recordsTotal.slice(start, start + length);
+    const data = recordsTotal.slice(start, parseInt(start) + parseInt(length));
     res.json({
       raw: draw + 1,
       recordsTotal: recordsTotal.length,
