@@ -3,7 +3,7 @@ const path = require("path");
 const createError = require("http-errors");
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const logger = require("morgan");
+//const logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 
 const mongoDB = require("./config/mongodb");
@@ -37,7 +37,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Logger
-app.use(logger("dev"));
+//app.use(logger("dev"));
 
 // Routing
 app.use("/category", auth.checkLogin, categoryRouter);
