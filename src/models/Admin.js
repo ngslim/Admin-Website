@@ -41,7 +41,7 @@ const AdminSchema = new Schema({
   },
   is_lock: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   token: {
     type: String,

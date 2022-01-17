@@ -1,8 +1,98 @@
-<%- contentFor('css_body') %> <%- contentFor('body') %>
+<%- contentFor('css_body') %>
+<!-- Datatable  -->
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"
+/>
+
+<link rel="stylesheet" href="/assets/css/custom-datatable.css" />
+<%- contentFor('body') %>
 <div class="breadcrumb">
   <div class="page-title">User</div>
 </div>
 
-<div class="page-body"></div>
+<div class="page-body">
+  <table id="table" class="display responsive" style="width: 100%">
+    <thead>
+      <tr>
+        <th style="min-width: 20px"></th>
+        <th class="all" style="min-width: 180px">Username</th>
+        <th class="no-sort min-tablet-l" style="min-width: 240px">Email</th>
+        <th class="no-sort min-desktop">Fullname</th>
+        <th class="no-sort all" style="min-width: 40px">Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
 
 <%- contentFor('js_body') %>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#table").DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: {
+        url: "/user",
+        type: "POST",
+      },
+      searching: false,
+      lengthChange: false,
+      pageLength: 5,
+      responsive: {
+        details: {
+          type: "column",
+        },
+      },
+      columnDefs: [
+        {
+          className: "dtr-control",
+          orderable: false,
+          targets: 0,
+        },
+        {
+          orderable: false,
+          targets: "no-sort",
+        },
+      ],
+      order: [1, "asc"],
+      columns: [
+        {
+          data: null,
+          render: function (data, type, row) {
+            return "";
+          },
+        },
+        { data: "username" },
+        { data: "email" },
+        {
+          data: "fullname",
+          render: function (data, type, row) {
+            if (data) return data;
+            else return "";
+          },
+        },
+        {
+          data: null,
+          render: function (data, type, row) {
+            var status = data.is_lock ? "Active" : "Lock";
+            return (
+              "<a style='font-size: 1.4rem' class='fix' href='/user/update/" +
+              data._id +
+              "'>" +
+              status +
+              "</a>"
+            );
+          },
+        },
+      ],
+    });
+  });
+</script>
