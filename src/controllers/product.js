@@ -16,7 +16,7 @@ const getProducts = async (req, res, next) => {
       .sort({
         [nameColSort]: order[0].dir,
       });
-    const data = recordsTotal.slice(start, start + length);
+    const data = recordsTotal.slice(start, start + 5);
 
     console.log(data);
 
