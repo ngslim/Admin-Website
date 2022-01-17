@@ -1,0 +1,120 @@
+<%- contentFor('css_body') %>
+<!-- Datatable  -->
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"
+/>
+
+<link rel="stylesheet" href="/assets/css/custom-datatable.css" />
+<style>
+  table {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+</style>
+<%- contentFor('body') %>
+<div class="breadcrumb">
+  <div class="page-title">Order Detail</div>
+  <a href="/order" class="btn-full bg-primary"
+    ><i class="bx bx-exit bx-rotate-180"></i>Exit</a
+  >
+</div>
+
+<div class="page-body">
+  <div class="order-field">
+    <label for="">Order ID:</label>
+    <span><%= order._id %></span>
+  </div>
+  <div class="order-field">
+    <label for="">Email:</label>
+    <span><%= order.user.email %></span>
+  </div>
+
+  <label class="title-table">Product:</label>
+  <table id="table" class="display responsive" style="width: 100%">
+    <thead>
+      <tr>
+        <th style="max-width: 10px"></th>
+        <th class="no-sort min-tablet-p" style="min-width: 40px">Avatar</th>
+        <th class="no-sort all" style="min-width: 140px">Name</th>
+        <th class="no-sort min-tablet-l" style="min-width: 200px">Price</th>
+        <th class="no-sort">Discount</th>
+        <th class="no-sort all" style="min-width: 40px">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% order.products.forEach(function(product) { %>
+      <tr>
+        <th style="max-width: 10px"></th>
+        <th class="no-sort min-tablet-p" style="min-width: 40px">
+          <img src="<%= product.img %>" height="40" width="30" />
+        </th>
+        <th class="no-sort all" style="min-width: 140px">
+          <%= product.name %>
+        </th>
+        <th class="no-sort min-tablet-l" style="min-width: 200px">
+          <%= product.price %>
+        </th>
+        <th class="no-sort min-desktop">-<%= product.discount * 100 %>%</th>
+        <th class="no-sort all" style="min-width: 40px">
+          <%= product.price * (1 - product.discount) %>
+        </th>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <div class="order-field">
+    <label for="">Total:</label>
+    <span><%= order.total %></span>
+  </div>
+
+  <div class="order-field">
+    <label for="">Status:</label>
+    <select name="status" id="status">
+      <option <% if (order.status == "cancel") { %> selected <% } %> value="cancel">Cancel</option>
+      <option <% if (order.status == "processing") { %> selected <% } %> value="processing">Processing</option>
+      <option <% if (order.status == "confirm") { %> selected <% } %> value="confirm">Confirm</option>
+      <option <% if (order.status == "done") { %> selected <% } %> value="done">Done</option>
+    </select>
+  </div>
+</div>
+
+<%- contentFor('js_body') %>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#table").DataTable({
+      searching: false,
+      lengthChange: false,
+      paging: false,
+      ordering: false,
+      responsive: true,
+      info: false,
+    });
+  });
+
+  $(document).on('change', "#status", function (){
+    console.log($("#status").children(":selected").attr("value"))
+    $.ajax({
+      url: "/order/update-status/<%= order._id %>",
+      type: "POST",
+      data: {
+
+        status: $("#status").children(":selected").attr("value"),
+      }
+    }).done(function(result) {
+      if(result) {
+        console.log('success');
+      }
+    })
+  });
+</script>
+
+

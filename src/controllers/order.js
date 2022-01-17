@@ -27,8 +27,25 @@ const getOrders = async (req, res, next) => {
 const orderDetailPage = async (req, res, next) => {
   try {
     const { orderId } = req.params;
+    const order = await Order.findById(orderId)
+      .populate("user", "email")
+      .populate("products");
+    console.log(order);
+    res.render("order/detail", { order });
   } catch (err) {
     next(err);
+  }
+};
+
+const updateStatus = async (req, res, next) => {
+  try {
+    const { orderId } = req.params;
+    const { status } = req.body;
+
+    await Order.findByIdAndUpdate(orderId, { status });
+    res.send(true);
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -36,4 +53,5 @@ module.exports = {
   indexPage,
   getOrders,
   orderDetailPage,
+  updateStatus,
 };

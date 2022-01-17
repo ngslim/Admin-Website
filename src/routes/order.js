@@ -11,4 +11,6 @@ router
 
 router.route("/update/:orderId").get(OrderController.orderDetailPage);
 
+router.route("/update-status/:orderId").post(OrderController.updateStatus);
+
 module.exports = router;
