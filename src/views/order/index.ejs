@@ -1,8 +1,96 @@
-<%- contentFor('css_body') %> <%- contentFor('body') %>
+<%- contentFor('css_body') %>
+<!-- Datatable  -->
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"
+/>
+
+<link rel="stylesheet" href="/assets/css/custom-datatable.css" />
+<%- contentFor('body') %>
 <div class="breadcrumb">
   <div class="page-title">Order</div>
 </div>
 
-<div class="page-body"></div>
+<div class="page-body">
+  <table id="table" class="display responsive" style="width: 100%">
+    <thead>
+      <tr>
+        <th style="min-width: 20px"></th>
+        <th class="no-sort all" style="min-width: 180px">Order ID</th>
+        <th class="min-tablet-l" style="min-width: 200px">Date</th>
+        <th class="no-sort all" style="min-width: 40px">Status</th>
+        <th class="no-sort btn all" style="min-width: 15px"></th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
 
 <%- contentFor('js_body') %>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#table").DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: {
+        url: "/order",
+        type: "POST",
+      },
+      searching: false,
+      lengthChange: false,
+      pageLength: 5,
+      responsive: {
+        details: {
+          type: "column",
+        },
+      },
+      columnDefs: [
+        {
+          className: "dtr-control",
+          orderable: false,
+          targets: 0,
+        },
+        {
+          orderable: false,
+          targets: "no-sort",
+        },
+      ],
+      order: [2, "asc"],
+      columns: [
+        {
+          data: null,
+          render: function (data, type, row) {
+            return "";
+          },
+        },
+        { data: "_id" },
+        {
+          data: "date",
+          render: function (data, type, row) {
+            var date = new Date(data);
+            var month = date.getMonth() + 1;
+            return date.getDate() + " - " + month + " - " + date.getFullYear();
+          },
+        },
+        { data: "status" },
+        {
+          data: null,
+          render: function (data, type, row) {
+            return (
+              "<a class='fix' href='/order/update/" +
+              data._id +
+              "'><i class='bx bx-pen'></i></a>"
+            );
+          },
+        },
+      ],
+    });
+  });
+</script>
